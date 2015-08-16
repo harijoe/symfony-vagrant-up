@@ -240,7 +240,10 @@ class DocumentController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('document_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array(
+                'label' => 'Delete',
+                'attr' => array('class' => 'btn btn-danger'),
+            ))
             ->getForm()
         ;
     }

@@ -31,7 +31,6 @@ class DocumentType extends AbstractType
         $resolver->setDefaults(
             array(
                 'data_class' => 'AppBundle\Entity\Document',
-                'attr'=> array('class'=>'navbar-form')
             )
         );
     }

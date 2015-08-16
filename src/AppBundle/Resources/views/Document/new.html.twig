@@ -1,15 +1,11 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
+{% block page_title %}
+    Document Creation
+{% endblock %}
+
 {% block content -%}
-    <h1>Document creation</h1>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('document') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
 {% endblock %}

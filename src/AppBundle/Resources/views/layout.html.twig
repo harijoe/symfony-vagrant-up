@@ -7,6 +7,14 @@
             <h2>Proof Of Concept</h2>
             <a href="http://www.theodo.fr/blog/2015/07/manage-multiple-files-upload-in-symfony/">Related blog article</a>
         </div>
+        {% block return_to_list %}
+        <a href="{{ path('document') }}">
+            Return to list
+        </a>
+        {% endblock %}
+        <div class="page-header">
+            <h1>{% block page_title %}{% endblock %}</h1>
+        </div>
         {% block content %}
         {% endblock %}
     </div>
