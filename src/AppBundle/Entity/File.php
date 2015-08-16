@@ -57,6 +57,20 @@ class File
     private $document;
 
     /**
+     * @param UploadedFile $uploadedFile
+     */
+    function __construct(UploadedFile $uploadedFile)
+    {
+        $path = sha1(uniqid(mt_rand(), true)).'.'.$uploadedFile->guessExtension();
+        $this->setPath($path);
+        $this->setSize($uploadedFile->getClientSize());
+        $this->setName($uploadedFile->getClientOriginalName());
+
+        $uploadedFile->move($this->getUploadRootDir(), $path);
+    }
+
+
+    /**
      * Get id
      *
      * @return integer

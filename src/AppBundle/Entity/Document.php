@@ -40,6 +40,9 @@ class Document
      */
     private $files;
 
+    /**
+     * @var ArrayCollection
+     */
     private $uploadedFiles;
 
     public function __construct() {
@@ -80,16 +83,6 @@ class Document
         return $this->name;
     }
 
-    protected function getUploadRootDir()
-    {
-        return __DIR__.'/../../../web/'.$this->getUploadDir();
-    }
-
-    protected function getUploadDir()
-    {
-        return 'uploads/documents';
-    }
-
     public function getFiles() {
         return $this->files;
     }
@@ -120,13 +113,7 @@ class Document
     {
         foreach($this->uploadedFiles as $uploadedFile)
         {
-            $file = new File();
-            $path = sha1(uniqid(mt_rand(), true)).'.'.$uploadedFile->guessExtension();
-            $file->setPath($path);
-            $file->setSize($uploadedFile->getClientSize());
-            $file->setName($uploadedFile->getClientOriginalName());
-
-            $uploadedFile->move($this->getUploadRootDir(), $path);
+            $file = new File($uploadedFile);
 
             $this->getFiles()->add($file);
             $file->setDocument($this);
