@@ -8,29 +8,27 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Actions</th>
             <th>Nb of files</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('document_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.id }}</td>
                 <td>{{ entity.name }}</td>
                 <td>
-                    <div class="btn-group" role="group" aria-label="...">
-                        <a href="{{ path('document_show', { 'id': entity.id }) }}">
-                            <button type="button" class="btn btn-default">Show
-                            </button>
-                        </a>
-                        <a href="{{ path('document_edit', { 'id': entity.id }) }}">
-                            <button type="button" class="btn btn-default">Edit</button>
-                        </a>
-
-                    </div>
+                    {{ entity.files|length }}
                 </td>
                 <td>
-                    {{ entity.files|length }}
+                    <div class="btn-group" role="group" aria-label="...">
+                        <a role="button" class="btn btn-default" href="{{ path('document_show', { 'id': entity.id }) }}">
+                            Show
+                        </a>
+                        <a role="button" class="btn btn-default" href="{{ path('document_edit', { 'id': entity.id }) }}">
+                            Edit
+                        </a>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
