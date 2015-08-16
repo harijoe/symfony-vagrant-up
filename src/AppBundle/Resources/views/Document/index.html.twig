@@ -18,14 +18,16 @@
                 <td><a href="{{ path('document_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.name }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('document_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('document_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                    <div class="btn-group" role="group" aria-label="...">
+                        <a href="{{ path('document_show', { 'id': entity.id }) }}">
+                            <button type="button" class="btn btn-default">Show
+                            </button>
+                        </a>
+                        <a href="{{ path('document_edit', { 'id': entity.id }) }}">
+                            <button type="button" class="btn btn-default">Edit</button>
+                        </a>
+
+                    </div>
                 </td>
                 <td>
                     {{ entity.files|length }}
