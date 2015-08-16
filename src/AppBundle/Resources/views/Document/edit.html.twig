@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Document edit</h1>
+
+    {{ form(edit_form) }}
+
+    <p>Nb of Uploaded Files : {{ entity.files|length }}</p>
+    <ul>
+        {% for file in entity.files %}
+            <li>
+                {{ file.name }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('document') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
+{% endblock %}
