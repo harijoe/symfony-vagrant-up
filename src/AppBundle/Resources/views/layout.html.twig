@@ -2,6 +2,10 @@
 
 {% block body %}
     <div class="container theme-showcase" role="main">
+        <div class="jumbotron">
+            {% block jumbotron %}
+            {% endblock %}
+        </div>
         {% block content %}
         {% endblock %}
     </div>
