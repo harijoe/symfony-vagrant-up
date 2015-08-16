@@ -1,32 +1,38 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block content -%}
-    <h1>Document</h1>
+    <div class="page-header">
+        <h1>Document</h1>
+    </div>
 
-    <table class="record_properties">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Value</th>
+        </tr>
+        </thead>
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ entity.name }}</td>
-            </tr>
+        <tr>
+            <td>Id</td>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{{ entity.name }}</td>
+        </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('document') }}">
-            Back to the list
+    {{ form(delete_form) }}
+
+    <div class="btn-group" role="group" aria-label="...">
+        <a role="button" class="btn btn-default" href="{{ path('document') }}">
+            List
         </a>
-    </li>
-    <li>
-        <a href="{{ path('document_edit', { 'id': entity.id }) }}">
+        <a role="button" class="btn btn-default" href="{{ path('document_edit', { 'id': entity.id }) }}">
             Edit
         </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    </div>
+
 {% endblock %}
