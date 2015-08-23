@@ -35,3 +35,6 @@ app/console do:mi:mi -n
 (Note : These commands will delete the current vagrant database and create another one)
 
 Enjoy : http://192.168.33.10
+
+### POC Single file upload dropzone
+Coming soon ...
