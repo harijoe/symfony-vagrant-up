@@ -29,7 +29,7 @@ You need to execute the following commands to make it work :
 ```
 app/console do:da:dr --force
 app/console do:da:cr
-app/console do:mi:mi
+app/console do:mi:mi -n
 ```
 
 (Note : These commands will delete the current vagrant database and create another one)
