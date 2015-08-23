@@ -1,7 +1,14 @@
-<h1>Upload File</h1>
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block page_title %}
+    Upload File
+{% endblock %}
+
+{% block content -%}
 
 <form action="#" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
 
     <input type="submit" value="Upload Document" />
 </form>
+{%- endblock %}
