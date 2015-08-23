@@ -113,12 +113,14 @@ class Document
     {
         foreach($this->uploadedFiles as $uploadedFile)
         {
-            $file = new File($uploadedFile);
+            if ($uploadedFile) {
+                $file = new File($uploadedFile);
 
-            $this->getFiles()->add($file);
-            $file->setDocument($this);
+                $this->getFiles()->add($file);
+                $file->setDocument($this);
 
-            unset($uploadedFile);
+                unset($uploadedFile);
+            }
         }
     }
 }

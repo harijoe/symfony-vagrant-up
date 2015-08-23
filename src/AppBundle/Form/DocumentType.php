@@ -19,6 +19,7 @@ class DocumentType extends AbstractType
             ->add('uploadedFiles', 'file', array(
                     'multiple' => true,
                     'data_class' => null,
+                    'required' => false,
                 )
             );
     }
