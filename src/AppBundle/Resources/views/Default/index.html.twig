@@ -5,10 +5,17 @@
 {% endblock %}
 
 {% block content -%}
+        {{ form_start(form) }}
+        {#{{ form_widget(form) }}#}
 
-<form action="#" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
+        <div class="input-file-container">
+            {{ form_label(form.file, 'File : ') }}
+            <p class="input-file-trigger">Select a file</p>
+            {{ form_widget(form.file, {'attr': {'class': 'input-file' }}) }}
+        </div>
 
-    <input type="submit" value="Upload Document" />
-</form>
+        {{ form_rest(form) }}
+
+        <input type="submit" value="Upload Document"/>
+    </form>
 {%- endblock %}
