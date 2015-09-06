@@ -7,7 +7,8 @@ use Symfony\Component\HttpFoundation\File\File;
 /**
  * @Entity()
  */
-class Document {
+class Document
+{
 
     /**
      * @var File
