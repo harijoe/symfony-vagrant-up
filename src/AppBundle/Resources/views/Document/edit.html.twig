@@ -1,0 +1,12 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block page_title %}
+    Document Edit
+{% endblock %}
+
+{% block content -%}
+    {{ form(edit_form) }}
+
+    <p>Nb of Uploaded Files : {{ entity.files|length }}</p>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block page_title %}
+    Document List
+{% endblock %}
+
+{% block return_to_list %}
+{% endblock %}
+
+{% block content -%}
+    <table class="records_list table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Nb of files</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.name }}</td>
+                <td>
+                    {{ entity.files|length }}
+                </td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="actions">
+                        <a role="button" class="btn btn-default"
+                           href="{{ path('document_show', { 'id': entity.id }) }}">
+                            Show
+                        </a>
+                        <a role="button" class="btn btn-default"
+                           href="{{ path('document_edit', { 'id': entity.id }) }}">
+                            Edit
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a role="button" class="btn btn-default" href="{{ path('document_new') }}">
+        Create a new entry
+    </a>
+
+{% endblock %}

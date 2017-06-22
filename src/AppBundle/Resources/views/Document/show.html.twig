@@ -1,0 +1,46 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block page_title %}
+    Document
+{% endblock %}
+
+{% block content -%}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Id</td>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{{ entity.name }}</td>
+        </tr>
+        <tr>
+            <td>Uploaded files</td>
+            <td>
+                <ul>
+                    {% for file in entity.files %}
+                        <li>
+                            {{ file.name }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a role="button" class="btn btn-default" href="{{ path('document_edit', { 'id': entity.id }) }}">
+        Edit
+    </a>
+    <p>or</p>
+    {{ form(delete_form) }}
+
+
+{% endblock %}
